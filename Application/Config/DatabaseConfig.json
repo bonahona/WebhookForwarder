@@ -1,0 +1,11 @@
+{
+  "Database": {
+    "UseDatabase": true,
+    "DatabaseType" : "PDO",
+    "Provider" : "mysql",
+    "Server" : "webhook-forwarder-mysql",
+    "Database" : "webhook",
+    "Username" : "root",
+    "Password" : "H3mligt"
+  }
+}
