@@ -26,7 +26,7 @@ class DatabaseTableBuilder implements IDatabaseMigratorTask
         return $this;
     }
 
-    public function AddReference($table, $column, $name = '', $special = array())
+    public function AddReference($table, $column, $special = array(),  $name = '')
     {
         if($name == ''){
             $name = $table . 'Id';

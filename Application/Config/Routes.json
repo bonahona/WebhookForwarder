@@ -1,15 +1,21 @@
 {
   "Routes": [
     {
-      "/{Controller}/{Action}/{...}": {
-        "Controller": "{Controller}",
+      "/Admin/{Action}/{...}": {
+        "Controller": "Admin",
         "Action": "{Action}",
+        "Variables": "{...}"
+      }
+    },
+    {
+      "{...}": {
+        "Controller": "Webhook",
+        "Action": "Handle",
         "Variables": "{...}"
       }
     }
   ],
   "Default": {
-    "Controller": "Home",
     "Action": "Index",
     "Variables": {
     }
