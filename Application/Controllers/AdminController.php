@@ -3,6 +3,12 @@ class AdminController extends Controller
 {
     public function BeforeAction()
     {
+        $ipAddress = $_SERVER['REMOTE_ADDR'];
+
+        if(!startsWith($ipAddress, '10.13.')){
+            return $this->HttpStatus(403);
+        }
+
         $this->Title = 'Webhook Admin';
     }
 

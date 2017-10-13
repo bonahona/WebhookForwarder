@@ -15,8 +15,9 @@ class WebhookController extends Controller
         $body = file_get_contents('php://input');
         $result = $this->TrySendHook($forwardRule, $body);
 
-        $forwardRule->ForwardLogs[] = $this->Models->ForwardLog->Create(array('Payload' => $body, 'Source' => 'test', 'DateTime' => date('yyyy-mm-dd hh:MM:ss'), 'Success' => $result));
-        $forwardRule->Save();
+        $forwardLog = $this->Models->ForwardLog->Create(array('Payload' => $body, 'Source' => $_SERVER['REMOTE_ADDR'], 'DateTime' => date('Y-m-d h:i:s'), 'Success' => $result, 'ForwardRuleId' => $forwardRule->Id));
+        $forwardLog->Save();
+        return $this->Json($forwardLog->Object());
 
         return $this->HttpStatus('204');
     }
