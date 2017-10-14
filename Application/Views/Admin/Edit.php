@@ -2,6 +2,7 @@
 /**
  * @var $this AdminController
  * @var $ForwardRule ForwardRule
+ * @var $ForwardLogs ForwardLog[]
  */ ?>
 
 <div class="row">
@@ -33,7 +34,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h2>Log</h2>
-                <?php foreach($ForwardRule->ForwardLogs->OrderByDescending('Id') as $log):?>
+                <?php foreach($ForwardLogs as $log):?>
                     <div class="row">
                         <div class="col-lg-4">
                             Date/Time: <?php echo $log->DateTime;?>
