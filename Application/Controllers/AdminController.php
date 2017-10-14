@@ -4,8 +4,9 @@ class AdminController extends Controller
     public function BeforeAction()
     {
         $ipAddress = $_SERVER['REMOTE_ADDR'];
-
-        if(!startsWith($ipAddress, '10.13.')){
+        
+        if(!startsWith($ipAddress, '10.13.') && !startsWith($ipAddress, '172.18')){
+            echo "Dafuw";
             return $this->HttpStatus(403);
         }
 
